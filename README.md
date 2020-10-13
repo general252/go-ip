@@ -17,3 +17,38 @@ http://ip.ws.126.net/ipquery?ip=114.114.114.114
 
 ### 4 淘宝
 http://ip.taobao.com/outGetIpInfo?ip=114.114.114.114&accessKey=alibaba-inc
+
+
+```
+go get github.com/general252/go-ip
+```
+
+```
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"github.com/general252/go-ip"
+)
+
+func main() {
+	if result, err := go_ip.GetIpAddress("47.121.184.45"); err != nil {
+		fmt.Println(err)
+	} else {
+		data, _ := json.MarshalIndent(result, "", "  ")
+		fmt.Println(string(data))
+	}
+}
+
+```
+
+输出
+```
+{
+  "ip": "47.121.184.45",
+  "address": "浙江省杭州市 阿里云",
+  "type": "Baidu OpenData",
+  "timeout": 62
+}
+```
